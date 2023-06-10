@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
   <style>
     body {
         margin: 0;
+        font-family: 'Asap', sans-serif;
+        color: white;
+    }
+
+    .footer {
+      background-color: tan;
+      height: 190px;
+      margin-top: 5px;
     }
     .header {
+        font-size: 40px;
         background-color: tan;
-        height: 5em;
+        height: 90px;
         margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .header img {
         position: absolute;
-        right: 5%;
-        height: inherit;
+        right: 7.5%;
+        height: 50px;
+    }
+    .header p {
+      margin: 0px;
+      letter-spacing: 4px;
     }
 
     .gallery {
       margin: auto;
-      width: 90%;
+      width: 85%;
       display: grid;
-      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
       gap: 5px;
+    }
+
+    .gallery-chapter {
+      background-attachment: fixed;
+      background-image: linear-gradient(to bottom, #A1D1AD, hsl(135, 4%, 43%));
+      height: 50px;
+      border-radius: 8px;
+      font-size: 30px;
+      grid-column: 1 / 4;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-left: 10px;
     }
 
     .gallery-item {
       position: relative;
       overflow: hidden;
-      background-color: cornflowerblue;
-      border-radius: 15px;
+      background-color: #9D77D1;
+      border-radius: 8px;
       cursor: pointer;
     }
 
@@ -105,33 +135,157 @@
   </style>
 </head>
 <body>
-  <div class="header"> <img src="squareJonathan.svg"></div>
+  <div class="header">
+    <img src="jonathanSchweers.svg">
+    <p>CAD Gallerie</p>
+  </div>
   <div class="gallery">
+
+    <div class="gallery-chapter">
+      <p>2023</p>
+    </div>
+
     <div class="gallery-item">
-      <img src="image1.png" alt="Image 1" onclick="openPopup('https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e43e52876cca9ae3198?mode=embed')">
+      <img src="monitor.png" alt="monitor" onclick="openPopup('https://example.com/link2')">
       <div class="overlay">
-        <div class="overlay-text">Image 1</div>
+        <div class="overlay-text">monitor</div>
       </div>
     </div>
+
     <div class="gallery-item">
-      <img src="image2.png" alt="Image 2" onclick="openPopup('https://example.com/link2')">
+      <img src="schnecke.png" alt="schnecke" onclick="openPopup('https://example.com/link2')">
       <div class="overlay">
-        <div class="overlay-text">Image 2</div>
+        <div class="overlay-text">schnecke</div>
       </div>
     </div>
+
     <div class="gallery-item">
-      <img src="image3.png" alt="Image 3" onclick="openPopup('https://example.com/link3')">
+      <img src="geige.png" alt="geige" onclick="openPopup('https://example.com/link2')">
       <div class="overlay">
-        <div class="overlay-text">Image 3</div>
+        <div class="overlay-text">geige</div>
       </div>
     </div>
-    <div class="gallery-item">
-        <img src="image4.png" alt="Image 4" onclick="openPopup('https://example.com/link3')">
+
+    <div class="gallery-chapter">
+      <p>2022</p>
+    </div>
+
+      <div class="gallery-item">
+        <img src="hook.png" alt="hook" onclick="openPopup('https://example.com/link3')">
         <div class="overlay">
-          <div class="overlay-text">Image 4</div>
+          <div class="overlay-text">hook</div>
         </div>
       </div>
+
+      <div class="gallery-item">
+        <img src="ring.png" alt="ring" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">ring</div>
+        </div>
+      </div>
+
+      <div class="gallery-chapter">
+        <p>2021</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="hifiberry.png" alt="hifiberry" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">hifiberry</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="light.png" alt="light" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">light</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="mouse.png" alt="mouse" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">mouse</div>
+        </div>
+      </div>
+      
+      <div class="gallery-chapter">
+        <p>2020</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="soap.png" alt="soap" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">soap</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="dish.png" alt="dish" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">dish</div>
+        </div>
+      </div>
+
+      <div class="gallery-chapter">
+        <p>2019</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="pepper.png" alt="pepper" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">pepper</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="corner.png" alt="corner" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">corner</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="joint.png" alt="joint" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">joint</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="magnet.png" alt="magnet" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">magnet</div>
+        </div>
+      </div>
+
+      <div class="gallery-chapter">
+        <p>2018</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="bread.png" alt="bread" onclick="openPopup('https://example.com/link3')">
+        <div class="overlay">
+          <div class="overlay-text">bread</div>
+        </div>
+      </div>
+
+      <div class="gallery-chapter">
+        <p>2017</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="fridgeHinge.png" alt="fridgeHinge" onclick="openPopup('https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e43e52876cca9ae3198?mode=embed')">
+        <div class="overlay">
+          <div class="overlay-text">fridgeHinge</div>
+        </div>
+      </div>
+
     <!-- Add more gallery items as needed -->
+  </div>
+
+  <div class="footer">
+
   </div>
 
   <div class="popup" id="popup">
