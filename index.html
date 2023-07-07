@@ -1,227 +1,5 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>CAD Gallerie | Jonathan Schweers</title>
-        <link rel="icon" href="favicon.svg" type="image/svg+xml">
-        <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
-    </head>
 
-    <div class="header">
-        <p>CAD Gallerie</p>
-        <img src="jonathanSchweers.svg">
-    </div>
-
-    <div class="relative-header"></div>
-
-    <div id="popup-container">
-        <div id="popup">
-            <button id="close" type="button"><img src="close.svg"></button>
-            <div class="info-box" id="info-text"></div>
-            <iframe id="popup-iframe" src=""></iframe>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2023</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="monitor.png" alt="monitor">
-                    <button class="open" type="button"
-                        data-text="<p>Bildschirmfuß:<p>
-                        <p>Diesen Bildschirmfuß habe ich speziell für einen bestimmten Bildschirm entworfen.<p>
-                        <p>Er sorgt dafür, dass der Bildschirm deutlich niedriger ist, als mit dem original Fuß möglich war.<p>
-                        <p>Zwei von diesen Bildschirmfüßen wurden an die rechte und linke Seite des unteren Rahmens gesteckt,<p>
-                        <p>3D gedruckt wurden die Teile auf der Seite liegend, um Gerüstmaterial zu verhindern und für größtmögliche Stabilität.<p>"
-                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH35dfcQT936092f0e437199fcfcae5df51e?mode=embed">
-                        <img src="cube.svg">
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="schnecke.png" alt="schnecke">
-                    <button class="open" type="button"
-                        data-text="<p>Geigen Schnecke:<p>
-                        <p>Diese Schnecke und Teil des Wirbelkastens habe ich angefangen zu konstruieren, um sicherzugehen, dass ich dazu in der Lage bin, weil ich eine E-Geige 3D Drucken möchte.<p>
-                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
-                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e394172cab9daa737?mode=embed">
-                        <img src="cube.svg">
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="geige.png" alt="geige">
-                    <button class="open" type="button"
-                        data-text="<p>Geigen Zarge:<p>
-                        <p>Die sogenannte Zarge für die E-Geige habe ich auch bereits konstruiert.<p>
-                        <p>Wenn die Geige fertig ist, soll sie nicht viel mehr Struktur aufweisen als diese Zarge, also kein Boden oder Deckel.<p>
-                        <p>Die Elektronik und Befestigungspunkte sollen mit Streben, die von der Innenseite der Zarge ausgehen, positioniert werden.<p>
-                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
-                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec53d741f9551247d?mode=embed">
-                        <img src="cube.svg">
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="bench.png" alt="bench">
-                    <button class="open" type="button"
-                        data-text="<p>Gartenbank:<p>
-                        <p>Konstruktion für eine Gartenbank aus genormten Bauholz.<p>
-                        <p>Es wurde auf übliche Winkel und Sitzhöhe geachtet.<p>"
-                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e27a88b4903ad53c5?mode=embed">
-                        <img src="cube.svg">
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2022</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="hook.png" alt="hook">
-                    <button class="open" type="button"
-                        data-text="<p>Haken:<p>
-                        <p>Dieser Haken kann an einer dünnen Stange mithilfe eines Kabelbinders in der umlaufenden Vertiefung befestigt werden.<p>
-                        <p>Bei dem Design wurde auf einen möglichst simplen Übergang von dem Haken zu dem Teil, das die Stange umfasst geachtet. Der Grund dafür ist, Belastungspunkte zu vermeiden und den Haken nicht ins Auge stechen zu lassen.<p>"
-                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eecddf00c3a2354f4?mode=embed">
-                        <img src="cube.svg">
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="ring.png" alt="ring">
-                    <button class="open" type="button"
-                    data-text="<p>Ring:<p>
-                        <p>Diesen Ring habe ich nach einem Motiv aus einem Computerspiel modelliert.<p>
-                        <p> Eine Schwierigkeit, bestand darin, das eigentlich flache Motiv an die Krümmung des Rings anzupassen und dabei dieses noch erkennbar zu lassen.<p>
-                        <p>Im Nachhinein stelle sich heraus, dass einige Elemente etwas zu dünn waren.<p>"
-                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7531a5d33f0bf4a1?mode=embed">
-                    <img src="cube.svg">
-                </button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="light.png" alt="light">
-                    <button class="open" type="button"
-                    data-text="<p>Fahrradrücklicht Halterung:<p>
-                        <p>Diese Teile habe ich innerhalb einer halben Stunde konstruiert und 3D gedruckt.<p>
-                        <p>Sie ersetzen die Halterung, meines Fahrradrücklichtes in dem sie seitlich an das Licht verklebt werden. Dabei umschließt die eine Seite einen großen O-Ring komplett und auf der anderen Seite kann der O-Ring eingehakt werden.<p>
-                        <p>Der O-Ring kann so um die Sattelstange gelegt werden, um das Rücklicht an dieser zu befestigen.<p>"
-                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e928e4edff264b5b9?mode=embed">
-                    <img src="cube.svg">
-                </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2021</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="hifiberry.png" alt="hifiberry">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="mouse.png" alt="mouse">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2020</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="soap.png" alt="soap">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="dish.png" alt="dish">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2019</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="pepper.png" alt="pepper">
-                        <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="turtle2.png" alt="corner">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="joint.png" alt="joint">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="magnet.png" alt="magnet">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="corner.png" alt="turtle2">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2018</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="bread.png" alt="bread">
-                        <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="turtle1.png" alt="turtle1">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-                <div class="grid-item">
-                    <img class="content" src="tripod.png" alt="tripod">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chapter-container">
-        <div class="chapter">2017</div>
-        <div class="grid-container">
-            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
-            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
-            <div class="grid">
-                <div class="grid-item">
-                    <img class="content" src="fridgeHinge.png" alt="fridgeHinge">
-                    <button class="open" type="button"><img src="cube.svg"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-      
-</html>
-    
 <style>
     body {
         margin: 0;
@@ -321,6 +99,7 @@
 
     .info-box {
         position: absolute;
+        overflow: scroll;
         top: 55px;
         left: 5px;
         width: 290px;
@@ -330,7 +109,14 @@
         background-color: rgba(27, 29, 42, 0.9);
         backdrop-filter: blur(5px);
         box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
     }
+
+    .info-box::-webkit-scrollbar {
+        display: none;  /* Chromium */
+    }
+
 
     .info-box p {
         margin: 10px;
@@ -486,6 +272,301 @@
 }
 </style>
 
+<html>
+    <head>
+        <title>CAD Gallerie | Jonathan Schweers</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
+    </head>
+
+    <div class="header">
+        <p>CAD Gallerie</p>
+        <img src="jonathanSchweers.svg">
+    </div>
+
+    <div class="relative-header"></div>
+
+    <div id="popup-container">
+        <div id="popup">
+            <button id="close" type="button"><img src="close.svg"></button>
+            <div class="info-box" id="info-text"></div>
+            <iframe id="popup-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2023</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="monitor.png" alt="monitor">
+                    <button class="open" type="button"
+                        data-text="<p>Bildschirmfuß:<p>
+                        <p>Diesen Bildschirmfuß habe ich speziell für einen bestimmten Bildschirm entworfen.<p>
+                        <p>Er sorgt dafür, dass der Bildschirm deutlich niedriger ist, als mit dem original Fuß möglich war.<p>
+                        <p>Zwei von diesen Bildschirmfüßen wurden an die rechte und linke Seite des unteren Rahmens gesteckt,<p>
+                        <p>3D gedruckt wurden die Teile auf der Seite liegend, um Gerüstmaterial zu verhindern und für größtmögliche Stabilität.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH35dfcQT936092f0e437199fcfcae5df51e?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="schnecke.png" alt="schnecke">
+                    <button class="open" type="button"
+                        data-text="<p>Geigen Schnecke:<p>
+                        <p>Diese Schnecke und Teil des Wirbelkastens habe ich angefangen zu konstruieren, um sicherzugehen, dass ich dazu in der Lage bin, weil ich eine E-Geige 3D Drucken möchte.<p>
+                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e394172cab9daa737?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="geige.png" alt="geige">
+                    <button class="open" type="button"
+                        data-text="<p>Geigen Zarge:<p>
+                        <p>Die sogenannte Zarge für die E-Geige habe ich auch bereits konstruiert.<p>
+                        <p>Wenn die Geige fertig ist, soll sie nicht viel mehr Struktur aufweisen als diese Zarge, also kein Boden oder Deckel.<p>
+                        <p>Die Elektronik und Befestigungspunkte sollen mit Streben, die von der Innenseite der Zarge ausgehen, positioniert werden.<p>
+                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec53d741f9551247d?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="bench.png" alt="bench">
+                    <button class="open" type="button"
+                        data-text="<p>Gartenbank:<p>
+                        <p>Konstruktion für eine Gartenbank aus genormten Bauholz.<p>
+                        <p>Es wurde auf übliche Winkel und Sitzhöhe geachtet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e27a88b4903ad53c5?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2022</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="hook.png" alt="hook">
+                    <button class="open" type="button"
+                        data-text="<p>Haken:<p>
+                        <p>Dieser Haken kann an einer dünnen Stange mithilfe eines Kabelbinders in der umlaufenden Vertiefung befestigt werden.<p>
+                        <p>Bei dem Design wurde auf einen möglichst simplen Übergang von dem Haken zu dem Teil, das die Stange umfasst geachtet. Der Grund dafür ist, Belastungspunkte zu vermeiden und den Haken nicht ins Auge stechen zu lassen.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eecddf00c3a2354f4?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="ring.png" alt="ring">
+                    <button class="open" type="button"
+                    data-text="<p>Ring:<p>
+                        <p>Diesen Ring habe ich nach einem Motiv aus einem Computerspiel modelliert.<p>
+                        <p> Eine Schwierigkeit, bestand darin, das eigentlich flache Motiv an die Krümmung des Rings anzupassen und dabei dieses noch erkennbar zu lassen.<p>
+                        <p>Im Nachhinein stelle sich heraus, dass einige Elemente etwas zu dünn waren.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7531a5d33f0bf4a1?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="light.png" alt="light">
+                    <button class="open" type="button"
+                    data-text="<p>Fahrradrücklicht Halterung:<p>
+                        <p>Diese Teile habe ich innerhalb einer halben Stunde konstruiert und 3D gedruckt.<p>
+                        <p>Sie ersetzen die Halterung, meines Fahrradrücklichtes in dem sie seitlich an das Licht verklebt werden. Dabei umschließt die eine Seite einen großen O-Ring komplett und auf der anderen Seite kann der O-Ring eingehakt werden.<p>
+                        <p>Der O-Ring kann so um die Sattelstange gelegt werden, um das Rücklicht an dieser zu befestigen.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e928e4edff264b5b9?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2021</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="hifiberry.png" alt="hifiberry">
+                    <button class="open" type="button"
+                    data-text="<p>HIFIBERRY DAC+ ZERO Gehäuse:<p>
+                    <p>Dieses Gehäuse habe ich für einen Freund erstellt.<p>
+                    <p>Es stellt eine Miniaturversion eines CEOL N7 von Denon dar und bietet Platz für einen Raspberry Pi Zero und ein Audioerweiterungsboard.<p>
+                    <p>Das Model des Raspberry Pi Zero habe ich als Referenz benutzt und ist nicht von mir.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e434893a82341eb46f7?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="mouse.png" alt="mouse">
+                    <button class="open" type="button"
+                    data-text="<p>Computermaus:<p>
+                    <p>Konzept für die Form einer Maus.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ecb1b3e582a9d5e89?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2020</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="soap.png" alt="soap">
+                    <button class="open" type="button"
+                    data-text="<p>Seifenspender Ersatzteil:<p>
+                    <p>Oberes Teil eines beschädigten Acrylbehälter für Handseife.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eee55e26241b2b2fd?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="dish.png" alt="dish">
+                    <button class="open" type="button"
+                    data-text="<p>Desinfektionsmittel Schale:<p>
+                    <p>Eine Schale, die zwischen den Standfüßen eines Desinfektionsmittelspenders eingehakt werden kann.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e8050a6b61176022f?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2019</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="pepper.png" alt="pepper">
+                        <button class="open" type="button"
+                        data-text="<p>Pfeffermühlen Ersatzteil:<p>
+                        <p>Teil zur Fixierung der Achse einer Pfeffermühle.<p>
+                        <p>Modelliert anhand von Messungen eines Freundes.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7ea2ff5fc9880b81?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="turtle2.png" alt="corner">
+                    <button class="open" type="button"
+                    data-text="<p>Schildkröte 2:<p>
+                    <p>Zweiter Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
+                    <p>Zu diesem Zeitpunkt, habe ich einen Weg gefunden, um den Panzer zu modellieren.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e0c2f8cac9c089c8c?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="joint.png" alt="joint">
+                    <button class="open" type="button"
+                    data-text="<p>Kreuzgelenk:<p>
+                        <p>Entwurf für ein Kreuzgelenk.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec7a534dbe2beb1ae?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="magnet.png" alt="magnet">
+                    <button class="open" type="button"
+                    data-text="<p>Winkel:<p>
+                    <p>Kompakter Winkel, speziell angepasst für vorhandene Maschinenschrauben und Anwendung.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef496e3626feb9bbf?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="corner.png" alt="turtle2">
+                    <button class="open" type="button"
+                    data-text="<p>Eckverbinder:<p>
+                    <p>Teil zum Verbinden von Paneelen.<p>
+                    <p>Ohne Gerüstmaterial druckbar.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec33618f3ace2fb4b?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2018</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="bread.png" alt="bread">
+                        <button class="open" type="button"
+                        data-text="<p>Scharnier:<p>
+                        <p>Speziell an Profil angepasstest Scharnier.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6efc89165211f39835?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="turtle1.png" alt="turtle1">
+                    <button class="open" type="button"
+                    data-text="<p>Schildkröte 1:<p>
+                    <p>Erster Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
+                    <p>Zu diesem Zeitpunkt, habe ich keinen Weg gefunden, um den Panzer richtig zu modellieren, weshalb ich das Modell nicht weiter ausgearbeitet habe.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e2bbdb7c8424bedc7?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="tripod.png" alt="tripod">
+                    <button class="open" type="button"
+                    data-text="<p>Stativ:<p>
+                    <p>Design für ein kleines Stativ.<p>
+                    <p>Das Material um die Gelenke müsste deutlich dicker sein.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef0b045e6daf5f70f?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2017</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="fridgeHinge.png" alt="fridgeHinge">
+                    <button class="open" type="button"
+                    data-text="<p>Scharnier Teil:<p>
+                    <p>Mein erstes CAD Modell.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e4310803c0120fa36e4?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+</html>
+
 <script>
     // Get all the chapter containers on the page
     const chapterContainers = document.querySelectorAll('.chapter-container');
@@ -608,6 +689,5 @@
         popupContainer.style.visibility = 'hidden';
         document.body.style.overflow = "auto";
     });
-
-
+    
 </script>
