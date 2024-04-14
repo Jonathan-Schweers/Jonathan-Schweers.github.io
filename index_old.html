@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Asap', sans-serif;
+        color: white;
+        background-color: rgb(12, 15, 29);
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+
+    body::-webkit-scrollbar {
+        display: none;  /* Chromium */
+    }
+
+    html {
+        scrollbar-width: none;
+    }
+
+    .header {
+        z-index: 12;
+        position: fixed;
+        backdrop-filter: blur(5px);
+        font-size: 40px;
+        letter-spacing: 7px;
+        background-color: rgba(27, 29, 42, 0.9);
+        width: 100%;
+        height: 90px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+    }
+
+    .header img {
+        position: absolute;
+        right: 7.5%;
+        height: 50px;
+    }
+
+    .relative-header {
+        height: 95px;
+    }
+
+    #popup-container {
+        visibility: hidden;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(27,29,42,0.5);
+        z-index: 11;
+    }
+
+    #popup {
+        position: fixed;
+        background-color: rgba(142, 142, 142, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        border-radius: 27.5px;
+        top: 100px;
+        left: 10px;
+        right: 10px;
+        height: calc(100vh - 110px);
+        resize: both;
+    }
+
+    #popup-iframe {
+        position: fixed;
+        top: 55px;
+        left: 300px;
+        width: calc(100vw - 325px);
+        height: calc(100vh - 170px);
+        border-style: none;
+        /* border-top-right-radius: 22.5px; */
+        border-bottom-right-radius: 22.5px;
+    }
+
+    #close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: rgba(27, 29, 42, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        border-radius: 22.5px;
+        border-style: none;
+        height: 45px;
+        width: 120px;
+        cursor: pointer;
+    }
+
+    #close:hover img{
+        filter: brightness(100);
+    }
+
+    .info-box {
+        position: absolute;
+        overflow: scroll;
+        top: 55px;
+        left: 5px;
+        width: 290px;
+        height: calc(100vh - 170px);
+        /* border-top-left-radius: 22.5px; */
+        border-bottom-left-radius: 22.5px;
+        background-color: rgba(27, 29, 42, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+    }
+
+    .info-box::-webkit-scrollbar {
+        display: none;  /* Chromium */
+    }
+
+
+    .info-box p {
+        margin: 10px;
+        font-size: larger;
+    }
+
+    .chapter-container {
+        position: relative;
+    }
+
+    .chapter {
+        position: sticky;
+        top: 95px;
+        z-index: 9;
+        background-attachment: fixed;
+        background-image: linear-gradient(to top, rgba(27, 29, 42, 0.9) 50%, rgba(39, 41, 60, 0.9));
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        color: rgb(133, 108, 76);
+        font-size: 30px;
+        height: 45px;
+        width: 120px;
+        border-radius: 22.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 50px;
+    }
+
+    .grid-container {
+        margin-top: -45px;
+    }
+
+    .slide {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+        top: 190px;
+        background-color: rgba(27, 29, 42, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        color: white;
+        width: 45px;
+        height: 120px;
+        border: none;
+        border-radius: 22.5px;
+        cursor: pointer;
+    }
+
+    .slide img {
+        height: inherit;
+    }
+
+    .slide:hover img {
+        filter: brightness(100);
+    }
+
+    #slideLeft {
+        right: 10px;
+    }
+    
+    #slideRight {
+        left: 180px;
+    }
+
+    .grid {
+        position: relative;
+        margin-bottom: 5px;
+        margin-left: 175px;
+        margin-right: 5px;
+        border-radius: 22.5px;
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        overflow: scroll;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .content:hover {
+        transform: scale(105%) rotate(0.5deg);
+    }
+
+    .grid-item {
+        display: flexbox;
+        position: relative;
+        overflow: hidden;
+        border-radius: 22.5px;
+        flex-shrink: 0;
+    }
+
+    .content {
+        width: auto;
+        height: 500px;
+        scale: 101%;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 105%;
+        height: 0;
+        background-color: rgba(27, 29, 42, 0.9);
+        
+        color: #fff;
+        text-align: center;
+        transition: height 0.3s ease;
+        overflow: visible;
+        z-index: 2;
+        pointer-events: none; /* Prevent overlay from capturing pointer events */
+    }
+
+    .grid-item:hover .overlay {
+        height: 33%;
+    }
+
+    .grid-item:hover .open {
+        visibility: visible;
+    }
+
+    .open {
+        position: absolute;
+        left: 142px;
+        z-index: 10;
+        background-color: rgba(27, 29, 42, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        color: white;
+        border: none;
+        border-radius: 22.5px;
+        cursor: pointer;
+        pointer-events: fill;
+        top: 5px;
+        width: 120px;
+        height: 45px;
+        visibility: hidden;
+    }
+
+    .open img {
+        height: auto;
+    }
+
+    .open:hover img {
+        filter: brightness(100);
+}
+</style>
+
+<html>
+    <head>
+        <title>CAD Galerie | Jonathan Schweers</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
+    </head>
+
+    <div class="header">
+        <p>CAD Galerie</p>
+        <img src="jonathanSchweers.svg">
+    </div>
+
+    <div class="relative-header"></div>
+
+    <div id="popup-container">
+        <div id="popup">
+            <button id="close" type="button"><img src="close.svg"></button>
+            <div class="info-box" id="info-text"></div>
+            <iframe id="popup-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2023</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="monitor.png" alt="monitor">
+                    <button class="open" type="button"
+                        data-text="<p>Bildschirmfuß:<p>
+                        <p>Diesen Bildschirmfuß habe ich speziell für einen bestimmten Bildschirm entworfen.<p>
+                        <p>Er sorgt dafür, dass der Bildschirm deutlich niedriger ist, als mit dem original Fuß möglich war.<p>
+                        <p>Zwei von diesen Bildschirmfüßen wurden an die rechte und linke Seite des unteren Rahmens gesteckt,<p>
+                        <p>3D gedruckt wurden die Teile auf der Seite liegend, um Gerüstmaterial zu verhindern und für größtmögliche Stabilität.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH35dfcQT936092f0e437199fcfcae5df51e?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="schnecke.png" alt="schnecke">
+                    <button class="open" type="button"
+                        data-text="<p>Geigen Schnecke:<p>
+                        <p>Diese Schnecke und Teil des Wirbelkastens habe ich angefangen zu konstruieren, um sicherzugehen, dass ich dazu in der Lage bin, weil ich eine E-Geige 3D Drucken möchte.<p>
+                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e394172cab9daa737?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="geige.png" alt="geige">
+                    <button class="open" type="button"
+                        data-text="<p>Geigen Zarge:<p>
+                        <p>Die sogenannte Zarge für die E-Geige habe ich auch bereits konstruiert.<p>
+                        <p>Wenn die Geige fertig ist, soll sie nicht viel mehr Struktur aufweisen als diese Zarge, also kein Boden oder Deckel.<p>
+                        <p>Die Elektronik und Befestigungspunkte sollen mit Streben, die von der Innenseite der Zarge ausgehen, positioniert werden.<p>
+                        <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec53d741f9551247d?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="bench.png" alt="bench">
+                    <button class="open" type="button"
+                        data-text="<p>Gartenbank:<p>
+                        <p>Konstruktion für eine Gartenbank aus genormten Bauholz.<p>
+                        <p>Es wurde auf übliche Winkel und Sitzhöhe geachtet.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e27a88b4903ad53c5?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2022</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="hook.png" alt="hook">
+                    <button class="open" type="button"
+                        data-text="<p>Haken:<p>
+                        <p>Dieser Haken kann an einer dünnen Stange mithilfe eines Kabelbinders in der umlaufenden Vertiefung befestigt werden.<p>
+                        <p>Bei dem Design wurde auf einen möglichst simplen Übergang von dem Haken zu dem Teil, das die Stange umfasst geachtet. Der Grund dafür ist, Belastungspunkte zu vermeiden und den Haken nicht ins Auge stechen zu lassen.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eecddf00c3a2354f4?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="ring.png" alt="ring">
+                    <button class="open" type="button"
+                    data-text="<p>Ring:<p>
+                        <p>Diesen Ring habe ich nach einem Motiv aus einem Computerspiel modelliert.<p>
+                        <p> Eine Schwierigkeit, bestand darin, das eigentlich flache Motiv an die Krümmung des Rings anzupassen und dabei dieses noch erkennbar zu lassen.<p>
+                        <p>Im Nachhinein stelle sich heraus, dass einige Elemente etwas zu dünn waren.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7531a5d33f0bf4a1?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="light.png" alt="light">
+                    <button class="open" type="button"
+                    data-text="<p>Fahrradrücklicht Halterung:<p>
+                        <p>Diese Teile habe ich innerhalb einer halben Stunde konstruiert und 3D gedruckt.<p>
+                        <p>Sie ersetzen die Halterung, meines Fahrradrücklichtes in dem sie seitlich an das Licht verklebt werden. Dabei umschließt die eine Seite einen großen O-Ring komplett und auf der anderen Seite kann der O-Ring eingehakt werden.<p>
+                        <p>Der O-Ring kann so um die Sattelstange gelegt werden, um das Rücklicht an dieser zu befestigen.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e928e4edff264b5b9?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2021</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="hifiberry.png" alt="hifiberry">
+                    <button class="open" type="button"
+                    data-text="<p>HIFIBERRY DAC+ ZERO Gehäuse:<p>
+                    <p>Dieses Gehäuse habe ich für einen Freund erstellt.<p>
+                    <p>Es stellt eine Miniaturversion eines CEOL N7 von Denon dar und bietet Platz für einen Raspberry Pi Zero und ein Audioerweiterungsboard.<p>
+                    <p>Das Model des Raspberry Pi Zero habe ich als Referenz benutzt und ist nicht von mir.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e434893a82341eb46f7?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="mouse.png" alt="mouse">
+                    <button class="open" type="button"
+                    data-text="<p>Computermaus:<p>
+                    <p>Konzept für die Form einer Maus.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ecb1b3e582a9d5e89?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2020</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="soap.png" alt="soap">
+                    <button class="open" type="button"
+                    data-text="<p>Seifenspender Ersatzteil:<p>
+                    <p>Oberes Teil eines beschädigten Acrylbehälter für Handseife.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eee55e26241b2b2fd?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="dish.png" alt="dish">
+                    <button class="open" type="button"
+                    data-text="<p>Desinfektionsmittel Schale:<p>
+                    <p>Eine Schale, die zwischen den Standfüßen eines Desinfektionsmittelspenders eingehakt werden kann.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e8050a6b61176022f?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2019</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="pepper.png" alt="pepper">
+                        <button class="open" type="button"
+                        data-text="<p>Pfeffermühlen Ersatzteil:<p>
+                        <p>Teil zur Fixierung der Achse einer Pfeffermühle.<p>
+                        <p>Modelliert anhand von Messungen eines Freundes.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7ea2ff5fc9880b81?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="turtle2.png" alt="corner">
+                    <button class="open" type="button"
+                    data-text="<p>Schildkröte 2:<p>
+                    <p>Zweiter Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
+                    <p>Zu diesem Zeitpunkt, habe ich einen Weg gefunden, um den Panzer zu modellieren.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e0c2f8cac9c089c8c?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="joint.png" alt="joint">
+                    <button class="open" type="button"
+                    data-text="<p>Kreuzgelenk:<p>
+                        <p>Entwurf für ein Kreuzgelenk.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec7a534dbe2beb1ae?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="magnet.png" alt="magnet">
+                    <button class="open" type="button"
+                    data-text="<p>Winkel:<p>
+                    <p>Kompakter Winkel, speziell angepasst für vorhandene Maschinenschrauben und Anwendung.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef496e3626feb9bbf?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="corner.png" alt="turtle2">
+                    <button class="open" type="button"
+                    data-text="<p>Eckverbinder:<p>
+                    <p>Teil zum Verbinden von Paneelen.<p>
+                    <p>Ohne Gerüstmaterial druckbar.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec33618f3ace2fb4b?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2018</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="bread.png" alt="bread">
+                        <button class="open" type="button"
+                        data-text="<p>Scharnier:<p>
+                        <p>Speziell an Profil angepasstest Scharnier.<p>"
+                        data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6efc89165211f39835?mode=embed">
+                        <img src="cube.svg">
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="turtle1.png" alt="turtle1">
+                    <button class="open" type="button"
+                    data-text="<p>Schildkröte 1:<p>
+                    <p>Erster Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
+                    <p>Zu diesem Zeitpunkt, habe ich keinen Weg gefunden, um den Panzer richtig zu modellieren, weshalb ich das Modell nicht weiter ausgearbeitet habe.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e2bbdb7c8424bedc7?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+                <div class="grid-item">
+                    <img class="content" src="tripod.png" alt="tripod">
+                    <button class="open" type="button"
+                    data-text="<p>Stativ:<p>
+                    <p>Design für ein kleines Stativ.<p>
+                    <p>Das Material um die Gelenke müsste deutlich dicker sein.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef0b045e6daf5f70f?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-container">
+        <div class="chapter">2017</div>
+        <div class="grid-container">
+            <button class="slide" id="slideRight" type="button"><img src="arrowLeft.svg"></button>
+            <button class="slide" id="slideLeft" type="button"><img src="arrowRight.svg"></button>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="content" src="fridgeHinge.png" alt="fridgeHinge">
+                    <button class="open" type="button"
+                    data-text="<p>Scharnier Teil:<p>
+                    <p>Mein erstes CAD Modell.<p>"
+                    data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e4310803c0120fa36e4?mode=embed">
+                    <img src="cube.svg">
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+</html>
+
+<script>
+    // Get all the chapter containers on the page
+    const chapterContainers = document.querySelectorAll('.chapter-container');
+
+    // Loop through each chapter container
+    chapterContainers.forEach(container => {
+        // Find the relevant elements within each container
+        const slideLeftButton = container.querySelector('#slideLeft');
+        const slideRightButton = container.querySelector('#slideRight');
+        const grid = container.querySelector('.grid');
+
+        // Add event listeners to the buttons
+        slideLeftButton.addEventListener('click', () => {
+        // slide the specific grid left
+        smoothScroll(grid, 810);
+        });
+
+        slideRightButton.addEventListener('click', () => {
+        // slide the specific grid right
+        smoothScroll(grid, -810);
+        });
+
+        // Check scroll position and toggle button visibility on page load
+        toggleButtonVisibility(grid, slideLeftButton, slideRightButton);
+
+        // Check scroll position and toggle button visibility on scroll event
+        grid.addEventListener('scroll', () => {
+            toggleButtonVisibility(grid, slideLeftButton, slideRightButton);
+        });
+
+        // Add additional check for initial button visibility
+        window.addEventListener('load', () => {
+            toggleButtonVisibility(grid, slideLeftButton, slideRightButton, false);
+        });
+
+        // Check button visibility when window size is adjusted
+        window.addEventListener('resize', () => {
+            toggleButtonVisibility(grid, slideLeftButton, slideRightButton);
+        });
+
+    });
+
+    function smoothScroll(element, distance) {
+        const start = element.scrollLeft;
+        const startTime = performance.now();
+
+    function scroll(timestamp) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / 600, 1); // Adjust the duration as needed (here, it's set to 400ms)
+        const scrollAmount = start + distance * progress;
+
+        element.scrollLeft = scrollAmount;
+
+        if (progress < 1) {
+            requestAnimationFrame(scroll);
+        }
+    }
+
+    requestAnimationFrame(scroll);
+    }
+
+    function toggleButtonVisibility(grid, slideLeftButton, slideRightButton, initialLoad = false) {
+        const scrollLeftMax = grid.scrollWidth - grid.clientWidth;
+
+        slideRightButton.style.visibility = initialLoad ? 'visible' : grid.scrollLeft === 0 ? 'hidden' : 'visible';
+        slideLeftButton.style.visibility = grid.scrollLeft >= scrollLeftMax ? 'hidden' : 'visible';
+    }
+
+    // Retrieve all <img> elements with class "content"
+    const contentImages = document.querySelectorAll('.content');
+
+    // Loop through each <img> element and add event handlers
+    contentImages.forEach(function(image) {
+        image.onmouseover = function() {
+            this.style.transform = 'scale(105%) rotate(0.5deg)';
+        };
+
+        image.onmouseout = function() {
+            this.style.transform = 'scale(100%) rotate(0deg)';
+        };
+        
+    });
+
+        // Get references to the necessary elements
+        const openButtons = document.querySelectorAll('.open');
+        const popupContainer = document.getElementById('popup-container');
+        const popupIframe = document.getElementById('popup-iframe');
+        const popupInfo = document.getElementById('info-text')
+
+    // Loop through each <button> element and add event handler
+    openButtons.forEach(function(button) {
+        button.onmouseover = function() {
+            this.previousElementSibling.style.transform = 'scale(105%) rotate(0.5deg)';
+        };
+
+        button.onmouseout = function() {
+            this.previousElementSibling.style.transform = 'scale(100%) rotate(0deg)';
+        };
+
+        button.addEventListener('click', () => {
+            const link = button.dataset.link; // Get the link from the button's data attribute
+            const text = button.dataset.text; //Get the text from the buttpn's data attribute
+
+            popupIframe.src = link; // Update the iframe's source attribute
+            popupInfo.innerHTML = text; //Update the paragraph's inner HTML
+
+            // Toggle the visibility of the popup container
+            popupContainer.style.visibility = 'visible';
+            document.body.style.overflow = "hidden";
+        });
+
+    });
+
+    // Get the close button and the popup container
+    const closeButton = document.getElementById('close');
+
+    // Add a click event listener to the close button
+    closeButton.addEventListener('click', function() {
+        // Hide the popup container by setting its display property to 'none'
+        popupContainer.style.visibility = 'hidden';
+        document.body.style.overflow = "auto";
+    });
+    
+</script>
