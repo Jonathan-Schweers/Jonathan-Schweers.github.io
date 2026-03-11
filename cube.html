@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; overflow: hidden; }
+        
+        .scene { position: absolute; width: 0; height: 0; visibility: hidden; }
+        
+        /* Orthographic Isometric Camera */
+        .isometric-space { 
+            transform-style: preserve-3d; 
+            transform: rotateX(-35.264deg) rotateY(45deg); 
+        }
+        
+        .cube-proxy { 
+            transform-style: preserve-3d; 
+            /* Rotating 90 degrees, but offset by 45 to catch the symmetry point */
+            animation: loop90 2s infinite linear; 
+        }
+
+        @keyframes loop90 { 
+            from { transform: rotateY(-45deg); } 
+            to { transform: rotateY(-135deg); } 
+        }
+
+        #cube-svg { width: 400px; height: 400px; overflow: visible; }
+        .face { 
+            fill: rgba(35, 37, 49, 0); 
+            stroke: rgb(133, 108, 76); 
+            stroke-width: 18; 
+            stroke-linejoin: round;
+            paint-order: stroke;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="isometric-space">
+            <div class="cube-proxy">
+                <div class="vertex" id="v1" style="transform: translate3d(-100px, -100px, 100px)"></div>
+                <div class="vertex" id="v2" style="transform: translate3d(100px, -100px, 100px)"></div>
+                <div class="vertex" id="v3" style="transform: translate3d(100px, 100px, 100px)"></div>
+                <div class="vertex" id="v4" style="transform: translate3d(-100px, 100px, 100px)"></div>
+                <div class="vertex" id="v5" style="transform: translate3d(-100px, -100px, -100px)"></div>
+                <div class="vertex" id="v6" style="transform: translate3d(100px, -100px, -100px)"></div>
+                <div class="vertex" id="v7" style="transform: translate3d(100px, 100px, -100px)"></div>
+                <div class="vertex" id="v8" style="transform: translate3d(-100px, 100px, -100px)"></div>
+            </div>
+        </div>
+    </div>
+
+    <svg id="cube-svg" viewBox="0 0 400 400">
+        <path id="side-left" class="face" />
+        <path id="side-right" class="face" />
+        <path id="top-face" class="face" />
+    </svg>
+
+    <script>
+        const svg = document.getElementById('cube-svg');
+        const faces = {
+            top:   { el: document.getElementById('top-face'),   pts: ['v5','v6','v2','v1'] },
+            // Mapped to the two visible side planes
+            sideRight: { el: document.getElementById('side-right'), pts: ['v2','v6','v7','v3'] },
+            sideLeft:  { el: document.getElementById('side-left'),  pts: ['v1','v2','v3','v4'] }
+        };
+
+        function update() {
+            const svgRect = svg.getBoundingClientRect();
+            const centerX = svgRect.left + svgRect.width / 2;
+            const centerY = svgRect.top + svgRect.height / 2;
+
+            for (let key in faces) {
+                const face = faces[key];
+                const coords = face.pts.map(id => {
+                    const el = document.getElementById(id);
+                    const rect = el.getBoundingClientRect();
+                    return `${rect.left - centerX + 200},${rect.top - centerY + 200}`;
+                });
+                
+                face.el.setAttribute('d', `M ${coords[0]} L ${coords[1]} L ${coords[2]} L ${coords[3]} Z`);
+            }
+            requestAnimationFrame(update);
+        }
+        update();
+    </script>
+</body>
+</html>
