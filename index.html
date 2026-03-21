@@ -127,7 +127,47 @@
             border-style: none;
             border-radius: 5px;
             border-bottom-right-radius: 15px;
+            background-color: rgba(27, 29, 42, 0.9);
+
+            filter: opacity(0);
+            transition: filter 0.5s ease-in-out;
         }
+
+        #popup-iframe.ready {
+            filter: opacity(1);
+        }
+
+        /* New styling for the iframe background */
+.iframe-background {
+    position: fixed;
+    top: 60px;
+    left: 300px;
+    width: calc(100vw - 325px);
+    height: calc(100vh - 175px);
+    border-radius: 5px;
+    border-bottom-right-radius: 15px;
+    
+    /* Reusing .filler logic */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(27, 29, 42, 0.9);
+    outline: 2px solid rgb(32, 36, 52);
+    box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+    
+    z-index: 0; /* Keep it behind the iframe */
+}
+
+.iframe-background img {
+    width: 60%; /* Adjust size of the filler cube */
+    opacity: 0.5; /* Optional: makes it look more like a background watermark */
+}
+
+/* Ensure the iframe sits on top of the background */
+#popup-iframe {
+    z-index: 1;
+}
 
         #close {
             position: absolute;
@@ -277,6 +317,11 @@
             <h1 id="name"></h1>
             <button id="close" type="button"><img src="close.svg"></button>
             <div class="info-box" id="info-text"></div>
+
+            <div class="iframe-background">
+                <img src="fillercube.svg">
+            </div>
+
             <iframe id="popup-iframe" src=""></iframe>
         </div>
     </div>
@@ -289,7 +334,7 @@
                 data-text="<p>Ersatzrückseite einer Fernbedienung für einen Fernseher.<p>
                 <p>Die Position der Schrauben und Infrarot-LED sowie Hardware und Position der Batterien wurden vom Original übernommen.<p>
                 <p>Neue Form.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH286ddQT78850c0d8a429ca22cbbdc9a70a?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b8f452bab7547251f?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -301,7 +346,7 @@
                 <p>Rechts- und Linksbewegung wird durch die zwei Drehpunkte auf der mittleren Achse weitergegeben.<p>
                 <p>Auf- und Abbewegung erlauben die Langlöcher im Rahmen.<p>
                 <p>Für das Drücken des Knopfes wird die Druckrichtung über den mittleren Drehpunkt umgekehrt.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH286ddQT78850c0d8a40d0311427f8479d8?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b42a71802759e6bff?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -310,7 +355,7 @@
                 data-name="Boot"
                 data-text="<p>Entwurf für ein kompaktes Landungsboot.<p>
                 <p>Etwa 5 m lange Layout- und Konstruktionsidee, basierend auf längeren Versionen des Modells Pulsecraft von Stanleyboats.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH286ddQT78850c0d8a4e7ab74ba2ffb1bbf?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b5271617cc7f9f510?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -325,7 +370,7 @@
                 <p>Er sorgt dafür, dass der Bildschirm deutlich niedriger ist, als es mit dem original Fuß möglich war.<p>
                 <p>Zwei von diesen Bildschirmfüßen wurden an die rechte und linke Seite des unteren Rahmens gesteckt,<p>
                 <p>3D gedruckt wurden die Teile auf der Seite liegend, um Gerüstmaterial zu verhindern und für größtmögliche Stabilität.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/shares/public/SH35dfcQT936092f0e437199fcfcae5df51e?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bc07f383e87e5c5b2?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -334,7 +379,7 @@
                 data-name="Geigen Schnecke"
                 data-text="<p>Diese Schnecke und Teil des Wirbelkastens habe ich angefangen zu konstruieren, um sicherzugehen, dass ich dazu in der Lage bin, weil ich eine E-Geige 3D Drucken möchte.<p>
                 <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e394172cab9daa737?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bbfd302198ba0ad32?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -345,7 +390,7 @@
                 <p>Wenn die Geige fertig ist, soll sie nicht viel mehr Struktur aufweisen als diese Zarge, also kein Boden oder Deckel.<p>
                 <p>Die Elektronik und Befestigungspunkte sollen mit Streben, die von der Innenseite der Zarge ausgehen, positioniert werden.<p>
                 <p>Die Konstruktion der E-Geige ist noch nicht beendet.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec53d741f9551247d?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bead6e3dd6d4f1fc4?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -354,7 +399,7 @@
                 data-name="Gartenbank"
                 data-text="<p>Konstruktion für eine Gartenbank aus genormten Bauholz.<p>
                 <p>Es wurde auf übliche Winkel und Sitzhöhe geachtet.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e27a88b4903ad53c5?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72ba9bee91d295af782?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -367,7 +412,7 @@
                 data-name="Haken"
                 data-text="<p>Dieser Haken kann an einer dünnen Stange mithilfe eines Kabelbinders in der umlaufenden Vertiefung befestigt werden.<p>
                 <p>Bei dem Design wurde auf einen möglichst simplen Übergang von dem Haken zu dem Teil, das die Stange umfasst geachtet. Der Grund dafür ist, Belastungspunkte zu vermeiden und den Haken nicht ins Auge stechen zu lassen.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eecddf00c3a2354f4?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b67a7eb5ace6ede99?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -377,7 +422,7 @@
                 data-text="<p>Diesen Ring habe ich nach einem Motiv aus einem Computerspiel modelliert.<p>
                 <p> Eine Schwierigkeit, bestand darin, das eigentlich flache Motiv an die Krümmung des Rings anzupassen und dabei dieses noch erkennbar zu lassen.<p>
                 <p>Im Nachhinein stelle sich heraus, dass einige Elemente etwas zu dünn waren.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7531a5d33f0bf4a1?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bdec320021669e7f7?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -387,7 +432,7 @@
                 data-text="<p>Diese Teile habe ich innerhalb einer halben Stunde konstruiert und 3D gedruckt.<p>
                 <p>Sie ersetzen die Halterung, meines Fahrradrücklichtes in dem sie seitlich an das Licht verklebt werden. Dabei umschließt die eine Seite einen großen O-Ring komplett und auf der anderen Seite kann der O-Ring eingehakt werden.<p>
                 <p>Der O-Ring kann so um die Sattelstange gelegt werden, um das Rücklicht an dieser zu befestigen.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e928e4edff264b5b9?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72ba453746cdfc09c92?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -401,7 +446,7 @@
                 data-text="<p>Dieses Gehäuse habe ich für einen Freund erstellt.<p>
                 <p>Es stellt eine Miniaturversion eines CEOL N7 von Denon dar und bietet Platz für einen Raspberry Pi Zero und ein Audioerweiterungsboard.<p>
                 <p>Das Model des Raspberry Pi Zero habe ich als Referenz benutzt und ist nicht von mir.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e434893a82341eb46f7?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b7e41ef8d81a72562?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -409,7 +454,7 @@
             <button class="open" type="button"
                 data-name="Computermaus"
                 data-text="<p>Konzept für die Form einer Maus.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ecb1b3e582a9d5e89?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72ba19be0c310d10603?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -421,7 +466,7 @@
             <button class="open" type="button"
                 data-name="Seifenspender Ersatzteil"
                 data-text="<p>Oberes Teil eines beschädigten Acrylbehälter für Handseife.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6eee55e26241b2b2fd?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bb35afbb88a56d80c?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -429,7 +474,7 @@
             <button class="open" type="button"
                 data-name="Desinfektionsmittel Schale"
                 data-text="<p>Eine Schale, die zwischen den Standfüßen eines Desinfektionsmittelspenders eingehakt werden kann.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e8050a6b61176022f?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b2defd48903a1e797?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -442,7 +487,7 @@
                 data-name="Pfeffermühlen Ersatzteil"
                 data-text="<p>Teil zur Fixierung der Achse einer Pfeffermühle.<p>
                 <p>Modelliert anhand von Messungen eines Freundes.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e7ea2ff5fc9880b81?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bfe230d7ec1c69837?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -451,7 +496,7 @@
                 data-name="Schildkröte 2"
                 data-text="<p>Zweiter Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
                 <p>Zu diesem Zeitpunkt, habe ich einen Weg gefunden, um den Panzer zu modellieren.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e0c2f8cac9c089c8c?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bd17349783c182b6c?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -459,7 +504,7 @@
             <button class="open" type="button"
                 data-name="Kreuzgelenk"
                 data-text="<p>Entwurf für ein Kreuzgelenk.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec7a534dbe2beb1ae?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bf950723202c652b7?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -467,7 +512,7 @@
             <button class="open" type="button"
                 data-name="Winkel"
                 data-text="<p>Kompakter Winkel, speziell angepasst für vorhandene Maschinenschrauben und Anwendung.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef496e3626feb9bbf?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b354ae73fa6ebfb8a?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -476,7 +521,7 @@
                 data-name="Eckverbinder"
                 data-text="<p>Teil zum Verbinden von Paneelen.<p>
                 <p>Ohne Gerüstmaterial druckbar.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ec33618f3ace2fb4b?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b91b337beb9c7a4bd?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -488,7 +533,7 @@
             <button class="open" type="button"
                 data-name="Scharnier"
                 data-text="<p>Speziell an Profil angepasstest Scharnier.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6efc89165211f39835?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72be03c53d45a3c1c4a?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -497,7 +542,7 @@
                 data-name="Schildkröte 1"
                 data-text="<p>Erster Versuch, eine Schildkröte mit Polizeihut zu modellieren.<p>
                 <p>Zu diesem Zeitpunkt, habe ich keinen Weg gefunden, um den Panzer richtig zu modellieren, weshalb ich das Modell nicht weiter ausgearbeitet habe.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6e2bbdb7c8424bedc7?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b5696a8a77e03fa29?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -506,7 +551,7 @@
                 data-name="Stativ"
                 data-text="<p>Design für ein kleines Stativ.<p>
                 <p>Das Material um die Gelenke müsste deutlich dicker sein.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH512d4QTec90decfa6ef0b045e6daf5f70f?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bd2f0ba9031b00bb1?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -518,7 +563,7 @@
             <button class="open" type="button"
                 data-name="Scharnier Teil"
                 data-text="<p>Mein erstes CAD Modell.<p>"
-                data-link="https://myhub.autodesk360.com/ue2b2d7c2/g/shares/SH35dfcQT936092f0e4310803c0120fa36e4?mode=embed">
+                data-link="https://gmail6314467.autodesk360.com/shares/public/SH28cd1QT2badd0ea72bdcd0cd0eb402fe16?mode=embed">
                 <animated-cube></animated-cube>
             </button>
         </div>
@@ -617,18 +662,25 @@
             };
 
             button.addEventListener('click', () => {
-                const link = button.dataset.link; // Get the link from the button's data attribute
-                const name = button.dataset.name; // Get the name from the button's data attribute
-                const text = button.dataset.text; // Get the text from the button's data attribute
+    // 1. Reset the filter immediately so the NEW load is hidden
+    popupIframe.classList.remove('ready');
 
-                popupIframe.src = link; // Update the iframe's source attribute
-                popupName.innerHTML = name; //Update the heading's inner HTML
-                popupInfo.innerHTML = text; //Update the paragraph's inner HTML
+    popupIframe.src = button.dataset.link; 
+    popupName.innerHTML = button.dataset.name; 
+    popupInfo.innerHTML = button.dataset.text; 
 
-                // Toggle the visibility of the popup container
-                popupContainer.style.visibility = 'visible';
-                document.body.style.overflow = "hidden";
-            });
+    popupContainer.style.visibility = 'visible';
+    document.body.style.overflow = "hidden";
+
+    // 2. Wait for the iframe to load, then wait 1.5s for the 3D engine
+    popupIframe.onload = () => {
+        if (popupIframe.src !== "about:blank") {
+            setTimeout(() => {
+                popupIframe.classList.add('ready');
+            }, 2700); // The "anti-blink" buffer
+        }
+    };
+});
 
         });
 
@@ -637,14 +689,16 @@
 
         // Add a click event listener to the close button
         closeButton.addEventListener('click', function() {
-            // Hide the popup container by setting its display property to 'none'
-            popupContainer.style.visibility = 'hidden';
-            document.body.style.overflow = "auto";
-        });
+    popupContainer.style.visibility = 'hidden';
+    document.body.style.overflow = "auto";
+
+    // Reset everything for the next click
+    popupIframe.classList.remove('ready');
+    popupIframe.src = "about:blank"; 
+});
 
 
-    </script>
-    <script>
+
 class AnimatedCube extends HTMLElement {
     constructor() {
         super();
@@ -695,9 +749,14 @@ class AnimatedCube extends HTMLElement {
                 /* Transition removed to ensure instant color change */
             }
 
+            :host-context(.open:hover) .face {
+                stroke: #ffffff !important;
+            }
+
             :host(:hover) .face {
                 stroke: #ffffff !important;
             }
+
         </style>
         <div class="container">
             <div class="scene">
